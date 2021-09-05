@@ -1,0 +1,79 @@
+.work {
+  padding-top: 11rem;
+  &-list {
+    @include flexBox();
+    height: 78rem;
+  }
+  &-column {
+    width: 25%;
+    @include flexBox(stretch, flex-start, column);
+  }
+  &-item {
+    position: relative;
+  }
+  &-content {
+    color: white;
+    @include flexBox(center, center, column);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  &-title {
+    text-transform: uppercase;
+    margin-top: 1.4rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    @include textClamp(1);
+  }
+  &-desc {
+    @include textClamp(2);
+    color: white;
+  }
+  &-item:hover {
+    .work-content {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &-image {
+    object-fit: cover;
+    @include size(100%);
+  }
+  &-item {
+    height: 50%;
+  }
+  &-item--full {
+    height: 100%;
+  }
+  @include maxWidth(1600px) {
+    &-list {
+      height: 60rem;
+    }
+  }
+  @include maxWidth(1279px) {
+    &-list {
+      flex-wrap: wrap;
+      height: auto;
+    }
+    &-column {
+      width: 50%;
+    }
+    &-item {
+      height: 42rem;
+    }
+    &-item--full {
+      height: 84rem;
+    }
+  }
+  @include maxWidth(767px) {
+    padding-top: 5rem;
+    &-column {
+      width: 100%;
+    }
+    &-item,
+    &-item--full {
+      height: auto;
+    }
+  }
+}
+
+@include hoverEffect(".work-item", ".work-content", "false");

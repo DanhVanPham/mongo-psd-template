@@ -1,0 +1,68 @@
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: $primary-font;
+  line-height: 1;
+  color: $title-color;
+  font-size: 1.4rem;
+}
+
+.block-box {
+  text-align: center;
+  &-caption {
+    font-family: $third-font;
+    font-size: 2.4rem;
+    margin-bottom: 2.2rem;
+  }
+  &-title {
+    font-weight: bold;
+    font-size: 3rem;
+    padding-bottom: 3.5rem;
+    margin-bottom: 3.5rem;
+    text-transform: uppercase;
+    position: relative;
+    &::before {
+      content: "";
+      bottom: 0;
+      @include absoluteCenter("left");
+      @include bg($primary-color);
+      width: 6.2rem;
+      height: 4px;
+    }
+  }
+  &-desc {
+    @include textClamp(2);
+    max-width: 95.6rem;
+    font-family: $secondary-font;
+    font-size: 1.5rem;
+    color: $text-color;
+    line-height: 1.4;
+    font-weight: 300;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10rem;
+  }
+  @include maxWidth(767px) {
+    &-caption {
+      font-size: 2rem;
+    }
+    &-title {
+      font-size: 2.5rem;
+      padding-bottom: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    &-desc {
+      font-size: 1.4rem;
+      margin-bottom: 4rem;
+    }
+  }
+}

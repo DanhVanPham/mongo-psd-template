@@ -1,0 +1,109 @@
+.quotes {
+  padding: 7rem 0;
+  @include bg($gray-color);
+  &-arrow {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: $gray-dark-color;
+    cursor: pointer;
+    padding: 1rem 2rem;
+  }
+  &-content {
+    @include flexBox(center);
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
+  }
+  &-image {
+    @include size(15rem);
+    border: 3px solid $third-color;
+    @include flexBox(center, center);
+    flex-shrink: 0;
+    margin-right: 6rem;
+  }
+  &-image--circle {
+    @include size(21rem);
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 50%;
+    margin-right: 2.5rem;
+  }
+  &-desc {
+    @include textClamp(3);
+    font-size: 2.4rem;
+    font-family: $secondary-font;
+    font-weight: 300;
+    line-height: 1.5;
+    color: $text-color;
+    font-style: italic;
+    margin-bottom: 2.4rem;
+  }
+  &-author {
+    font-size: 2.4rem;
+    text-transform: capitalize;
+    font-family: $third-font;
+    position: relative;
+    display: inline-block;
+    padding-left: 7rem;
+    &::before {
+      content: "";
+      @include absoluteCenter("top");
+      left: 0;
+      width: 6.4rem;
+      height: 4px;
+      @include bg($primary-color);
+    }
+  }
+  //Slick Slider
+  .slick-initialized .slick-slide {
+    display: flex;
+  }
+  .slick-arrow {
+    background-color: transparent;
+    border: 0;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: $gray-dark-color;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    @include absoluteCenter("top");
+    z-index: 10;
+  }
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next {
+    right: 0;
+  }
+  @include maxWidth(767px) {
+    padding: 5rem 0;
+    &-arrow {
+      display: none;
+    }
+    &-content {
+      flex-direction: column;
+      padding: 0;
+    }
+    &-image {
+      @include size(10rem);
+      img {
+        max-width: 50%;
+      }
+      margin-right: 0;
+    }
+    &-image--circle {
+      margin-right: 0;
+    }
+    &-info {
+      margin-left: 0;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    &-desc {
+      display: block;
+      font-size: 1.6rem;
+    }
+    &-author {
+      font-size: 2rem;
+    }
+  }
+}

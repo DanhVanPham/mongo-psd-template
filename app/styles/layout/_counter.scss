@@ -1,0 +1,56 @@
+.counter {
+  @include bg($third-color);
+  color: white;
+  &-list {
+    @include flexBox();
+  }
+  &-item {
+    padding: 8.5rem 3.5rem;
+    width: 20%;
+    @include flexBox(center, center, column);
+    border-left: 2px solid $third-color-light;
+    text-align: center;
+  }
+  &-item:last-child {
+    border-right: 2px solid $third-color-light;
+  }
+  &-number {
+    font-weight: 700;
+    font-size: 7.2rem;
+    @include textClamp(1);
+  }
+  &-title {
+    text-transform: uppercase;
+    margin-top: 2.2rem;
+    line-height: 1.4;
+    @include textClamp(1);
+  }
+  @include maxWidth(1023px) {
+    &-item {
+      padding: 5rem 1.5rem;
+    }
+    &-number {
+      font-size: 5rem;
+    }
+    &-title {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+  }
+  @include maxWidth(767px) {
+    &-list {
+      display: block;
+    }
+    &-item {
+      width: 100%;
+      padding: 2.5rem;
+    }
+    &-item:not(:last-child) {
+      border-bottom: 2px solid $third-color-light;
+    }
+    &-item:not(:nth-child(999)) {
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+}

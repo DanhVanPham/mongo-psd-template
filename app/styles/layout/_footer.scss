@@ -1,0 +1,176 @@
+.footer {
+  padding-top: 8rem;
+  padding-bottom: 2.2rem;
+  &-top {
+    @include flexBox(stretch, space-between);
+    padding-bottom: 7rem;
+    margin-bottom: 2.4rem;
+    border-bottom: 1px solid $border-color;
+  }
+  &-column:first-child {
+    width: calc(40% - 2.5rem);
+  }
+  &-column:nth-child(2) {
+    width: calc(35% - 2.5rem);
+  }
+  &-column:last-child {
+    width: calc(25% - 2.5rem);
+  }
+  &-logo {
+    font-size: 4.6rem !important;
+    font-weight: bold !important;
+    color: $gray-dark-color !important;
+    display: inline-block;
+  }
+  &-heading {
+    margin-bottom: 4rem;
+    color: $title-color;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  &-desc {
+    font-size: 1.5rem;
+    font-family: $secondary-font;
+    line-height: 1.6;
+    color: $text-color;
+    @include textClamp(4);
+    margin-bottom: 5rem;
+  }
+  &-follower {
+    color: $title-color;
+    padding-bottom: 1.8rem;
+    display: block;
+    margin-bottom: 1.4rem;
+    border-bottom: 1px solid $border-color;
+    strong {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+  }
+  &-social {
+    span {
+      margin-right: 2rem;
+    }
+    margin-bottom: 3.6rem;
+    @include flexBox(center);
+  }
+  &-social-list {
+    @include flexBox(center, center);
+    column-gap: 1.8rem;
+    font-size: 1.8rem;
+  }
+  &-social-icon {
+    color: $third-color;
+  }
+  &-form {
+    @include flexBox();
+    width: 100%;
+    max-width: 38rem;
+    &-input {
+      padding: 1.5rem;
+      outline: none;
+      border: 1px solid $border-color;
+      flex-grow: 1;
+      border-right: 0;
+    }
+    &-button {
+      color: white;
+      text-transform: uppercase;
+      background-color: $third-color;
+      outline: none;
+      border: none;
+      padding: 0 3.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+  }
+  &-blog {
+    @include flexBox(center, center);
+    column-gap: 2rem;
+  }
+  &-blog:not(:first-child) {
+    margin-top: 3rem;
+  }
+  &-blog-image {
+    object-fit: cover;
+    @include size(12rem, 8rem);
+    flex-shrink: 0;
+  }
+  &-blog-title {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: $title-color;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    @include textClamp(2);
+  }
+  &-blog-date {
+    font-size: 1.3rem;
+  }
+  &-images {
+    @include flexBox(flex-start, flex-start, row, flex, wrap);
+    // column-gap: 3px;
+    margin-left: -2px;
+    // row-gap: 3px;
+  }
+  &-image {
+    width: calc(100% / 3 - 2px);
+    margin-left: 2px;
+    padding-bottom: calc(100% / 3);
+    position: relative;
+    height: 0;
+
+    img {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      flex-shrink: 0;
+      width: 100%;
+    }
+  }
+  &-more {
+    margin-top: 2rem;
+    display: inline-block;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: $title-color;
+  }
+  &-copyRight {
+    display: inline-block;
+    span {
+      color: $primary-color;
+    }
+    @include absoluteCenter("left", relative);
+  }
+  @include maxWidth(1023px) {
+    padding-top: 4rem;
+    &-top {
+      display: block;
+      padding-bottom: 3rem;
+    }
+    &-column:not(:nth-child(99)) {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+    &-blog {
+      justify-content: flex-start;
+    }
+    &-more {
+      font-size: 2rem;
+    }
+  }
+  @include maxWidth(767px) {
+    &-column {
+      text-align: center;
+    }
+    &-logo {
+      display: inline-block;
+    }
+    &-heading {
+      font-size: 2.1rem;
+    }
+  }
+}

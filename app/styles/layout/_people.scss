@@ -1,0 +1,86 @@
+.people {
+  padding: 10rem 0;
+  background: linear-gradient(
+      to bottom,
+      rgba($gray-color, 0.8),
+      rgba($gray-light-color, 0.8)
+    ),
+    url("../../images/img-people-bg.png") no-repeat center / cover;
+  &-list {
+    @include flexBox(stretch, space-between, row, flex, wrap);
+    row-gap: 6.8rem;
+    margin-top: 8.5rem;
+    padding: 0 3.5rem;
+  }
+  &-item {
+    width: calc(50% - 4.25rem);
+    @include flexBox(flex-start);
+  }
+  &-image {
+    @include size(11rem);
+    border-radius: 100rem;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  &-content {
+    margin-left: 3rem;
+  }
+  &-name {
+    font-weight: 500;
+    color: $title-color;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+    @include textClamp(1);
+  }
+  &-position {
+    display: block;
+    text-transform: capitalize;
+    padding-bottom: 2rem;
+    margin-bottom: 2.4rem;
+    color: $title-color;
+    position: relative;
+    @include textClamp(1);
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 6rem;
+      height: 3px;
+      @include bg($primary-color);
+    }
+  }
+  &-desc {
+    line-height: 1.6;
+    @include textClamp(3);
+  }
+  @include maxWidth(1023px) {
+    padding: 5rem 0;
+    &-list {
+      row-gap: 5rem;
+    }
+    &-item {
+      width: 100%;
+    }
+  }
+  @include maxWidth(767px) {
+    &-list {
+      padding: 0;
+    }
+    &-item {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &-content {
+      margin-top: 2.5rem;
+      margin-left: 0;
+      text-align: center;
+    }
+    &-position {
+      &::before {
+        @include absoluteCenter("left");
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+mixin menuLink(title, href = "#")
+    li.header-menu-item 
+        a.header-menu-link(href=href)=title  
+
+mixin menuIcon(icon, href= "#")
+    li.header-menu-item 
+        a.header-menu-icon(href="#")
+            =icon
+
+mixin headerBottomItem(number, text, isActive)
+    if isActive 
+        .header-bottom-item.is-active
+            span.header-bottom-number=number
+            span.header-bottom-text=text
+    else 
+        .header-bottom-item
+            span.header-bottom-number=number
+            span.header-bottom-text=text
+
+mixin blockBox(caption, title, description)
+    .block-box
+        h3.block-box-caption= caption 
+        h2.block-box-title=title 
+        if description 
+            p.block-box-desc=description
+
+//- data = {src: "", alt: "", icon: "", title: ""}
+mixin aboutItem(data)
+    .about-item 
+        img.about-image(src= data.src, alt= data.alt)
+        .about-content
+            i.about-icon(class= data.iconClass)
+            span.about-title=data.title
+
+mixin serviceItem(src, alt, title, desc)
+    .service-item 
+        img.service-item-icon(src=src, alt=alt)
+        .service-item-info 
+            h3.service-item-title= title
+            p.service-item-desc= desc
+
+mixin wedoItem(src, title, classIcon, content)
+    .wedo-item 
+        .wedo-item-header 
+            img(src= src, alt="alt")
+            h3.wedo-item-title= title
+            i.wedo-item-arrow(class= classIcon)
+        .wedo-item-content
+            .wedo-item-text= content
+
+mixin teamSocial(facebook = "#", twitter = "#", pinterest = "#", instagram = "#")
+    ul.team-social
+        li.team-social-item 
+            a.team-social-link(rel="stylesheet", href= facebook)
+                i.fab.fa-facebook-f
+        li.team-social-item 
+            a.team-social-link(rel="stylesheet", href= twitter)
+                i.fab.fa-twitter
+        li.team-social-item
+            a.team-social-link(rel="stylesheet", href= pinterest)
+                i.fab.fa-pinterest-p
+        li.team-social-item 
+            a.team-social-link(rel="stylesheet", href= instagram)
+                i.fab.fa-instagram
+
+
+mixin teamItem(src, name, position)
+    .team-item 
+        .team-main 
+            img(src=src, alt="alt").team-image
+            .team-content
+                if block 
+                    block
+        .team-info 
+            h3.team-name= name
+            span.team-position= position
+
+mixin workItem(src="./images/img-work1.png", srcIcon = "./images/img-work-icon.png", title = "Photographer Super", desc = "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", classFull = "")
+    .work-item(class = classFull)
+        img(src=src, alt="alt").work-image
+        .work-content 
+            img(src=srcIcon, alt="alt").work-content-image
+            h3.work-title= title
+            span.work-desc.text.text--light= desc
+    
+mixin peopleItem(src = "./images/img-people1.png", name = "Matthex Dix", position = "graphic design", desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.")
+    .people-item 
+        img(src=src, alt="alt").people-image
+        .people-content 
+            h3.people-name= name 
+            span.people-position.text.text--light= position 
+            p.people-desc.text.text--normal= desc
+
+mixin storyItem(src = "../../images/img-blog1.png", dateNumber = 15, dateText = "Jan", title = "Lorem ipsum dolor sit amet", desc = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", numberWatch = 542, numberComment = 17)
+    li.story-item 
+        .story-media 
+            img.story-image(src= src, alt="")
+            .story-date
+                span.story-date-number= dateNumber
+                span.story-date-text.text.text--light= dateText 
+        h3.story-title= title
+        .story-desc 
+            p.story-desc-text= desc
+        .story-meta 
+            .story-meta-item 
+                i.fa.fa-eye.story-meta-icon 
+                span.story-meta-number.text.text--light= numberWatch
+            .story-meta-item 
+                i.fa.fa-comment.story-meta-icon 
+                span.story-meta-number.text.text--light= numberComment
+
+mixin quoteItem(src="../../images/img-quote.png", type = false, desc="“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.”", author="Jon doe")
+    .quotes-content 
+        if type == false
+            .quotes-image
+                img(src= src, alt="alt")
+        else
+            img.quotes-image--circle(src= src, alt="alt")
+        .quotes-info 
+            p.quotes-desc= desc
+            span.quotes-author= author
+
+    
+
+    

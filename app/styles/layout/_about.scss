@@ -1,0 +1,47 @@
+.about {
+  padding-top: 9rem;
+  padding-bottom: 11rem;
+  &-list {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: -3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+  }
+
+  &-content {
+    @include flexBox(center, center, column);
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.4;
+    padding: 2rem;
+  }
+  &-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  &-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: $secondary-font;
+    @include textClamp;
+  }
+  @include maxWidth(767px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    //flexbox responsive about list
+    // &-item {
+    //   width: 100%;
+    //   margin-bottom: 2.5rem;
+    // }
+
+    //grid responsive ablut list
+    &-list {
+      @include touchSlider();
+    }
+  }
+}
+
+@include hoverEffect(".about-item", ".about-content");
