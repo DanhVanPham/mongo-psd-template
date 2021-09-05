@@ -1,2 +1,3 @@
 - Required NodeJS installed
 - `npm install` then run `npm run dev`
+- Link Website: https://mongo-psd-template-zeta.vercel.app/
